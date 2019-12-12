@@ -55,13 +55,5 @@ namespace UtopiaLib
 			params_obj.Add( new JProperty("pk", pk) );
 			return apiQuery("getContactMessages", params_obj, filter)["result"] as JArray;
 		}
-		
-		public bool sendEmailMessage(string to = "", string subject = "uMail subject", string body = "test message") {
-			JObject params_obj = new JObject();
-			params_obj.Add( new JProperty("to", to) );
-			params_obj.Add( new JProperty("subject", subject) );
-			params_obj.Add( new JProperty("body", body) );
-			return (bool) apiQuery("sendEmailMessage", params_obj)["result"];
-		}
 	}
 }

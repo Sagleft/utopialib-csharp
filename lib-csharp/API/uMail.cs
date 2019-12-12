@@ -43,6 +43,22 @@ namespace UtopiaLib
 			return (bool) apiQuery("deleteEmail", params_obj)["result"];
 		}
 		
+		public bool sendEmailMessage(string to = "", string subject = "uMail subject", string body = "test message") {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("to", new string[] {to} ) );
+			params_obj.Add( new JProperty("subject", subject) );
+			params_obj.Add( new JProperty("body", body) );
+			return (bool) apiQuery("sendEmailMessage", params_obj)["result"];
+		}
+		
+		public bool sendEmailMessages(string[] to, string subject = "uMail subject", string body = "test message") {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("to", to) );
+			params_obj.Add( new JProperty("subject", subject) );
+			params_obj.Add( new JProperty("body", body) );
+			return (bool) apiQuery("sendEmailMessage", params_obj)["result"];
+		}
+		
 		public bool sendReplyEmailMessage(int id = 33, string body = "test message", string subject = "test") {
 			JObject params_obj = new JObject();
 			params_obj.Add( new JProperty("id", id.ToString()) );
