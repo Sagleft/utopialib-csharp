@@ -11,7 +11,7 @@ namespace UtopiaLib
 		
 		public string createVoucher(decimal amount = 1) {
 			JObject params_obj = new JObject();
-			params_obj.Add( new JProperty("amount", amount.ToString()) );
+			params_obj.Add( new JProperty("amount", amount.ToString().Replace(',', '.')) );
 			return apiQuery("createVoucher", params_obj)["result"].ToString();
 		}
 		

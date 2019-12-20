@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 namespace UtopiaLib
 {
@@ -55,6 +56,7 @@ namespace UtopiaLib
 			}
 			
 			string jsonQuery = json_obj.ToString();
+			Debug.Print(jsonQuery);
 			
 			//http(s)://127.0.0.1:port/api/1.0
 			string result = HttpClient.buildJsonQuery(getApiUrl(), "POST", jsonQuery);

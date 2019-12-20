@@ -9,7 +9,7 @@ namespace UtopiaLib
 			JObject params_obj = new JObject();
 			params_obj.Add( new JProperty("to", to) );
 			params_obj.Add( new JProperty("cardid", cardid) );
-			params_obj.Add( new JProperty("amount", amount.ToString()) );
+			params_obj.Add( new JProperty("amount", amount.ToString().Replace(',', '.')) );
 			params_obj.Add( new JProperty("comment", comment) );
 			params_obj.Add( new JProperty("fromCard", fromCard) );
 			return apiQuery("sendPayment", params_obj)["result"].ToString();

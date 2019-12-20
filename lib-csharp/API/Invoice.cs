@@ -43,7 +43,7 @@ namespace UtopiaLib
 		public string sendInvoice(string cardid = "", decimal amount = 1, string comment = "") {
 			JObject params_obj = new JObject();
 			params_obj.Add( new JProperty("cardid", cardid) );
-			params_obj.Add( new JProperty("amount", amount.ToString()) );
+			params_obj.Add( new JProperty("amount", amount.ToString().Replace(',', '.')) );
 			params_obj.Add( new JProperty("comment", comment) );
 			return apiQuery("sendInvoice", params_obj)["result"].ToString();
 		}

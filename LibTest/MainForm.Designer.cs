@@ -132,7 +132,7 @@
 			this.textBox_token.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.textBox_token.Location = new System.Drawing.Point(425, 192);
 			this.textBox_token.Name = "textBox_token";
-			this.textBox_token.Size = new System.Drawing.Size(120, 29);
+			this.textBox_token.Size = new System.Drawing.Size(120, 30);
 			this.textBox_token.TabIndex = 3;
 			this.textBox_token.Text = "B33D62DEFE5DC030DE324A929C4E6D87";
 			this.textBox_token.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -142,7 +142,7 @@
 			this.textBox2_host.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.textBox2_host.Location = new System.Drawing.Point(425, 163);
 			this.textBox2_host.Name = "textBox2_host";
-			this.textBox2_host.Size = new System.Drawing.Size(120, 29);
+			this.textBox2_host.Size = new System.Drawing.Size(120, 30);
 			this.textBox2_host.TabIndex = 4;
 			this.textBox2_host.Text = "http://127.0.0.1";
 			this.textBox2_host.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -152,7 +152,7 @@
 			this.textBox_port.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.textBox_port.Location = new System.Drawing.Point(425, 134);
 			this.textBox_port.Name = "textBox_port";
-			this.textBox_port.Size = new System.Drawing.Size(120, 29);
+			this.textBox_port.Size = new System.Drawing.Size(120, 30);
 			this.textBox_port.TabIndex = 5;
 			this.textBox_port.Text = "22824";
 			this.textBox_port.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -172,7 +172,7 @@
 			this.Controls.Add(this.textBox_port);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.pictureBox1);
-			this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -183,6 +183,7 @@
 			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
+
 		}
 		private System.Windows.Forms.Button btn_clearlog;
 		private System.Windows.Forms.TextBox textBox_log;
