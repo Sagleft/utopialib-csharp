@@ -52,5 +52,10 @@ namespace UtopiaLib
 		public JArray getTreasuryTransactionVolumes(QueryFilter filter) {
 			return apiQuery("getTreasuryTransactionVolumes")["result"] as JArray;
 		}
+		
+		public bool checkClientConnection() {
+			JObject result = apiQuery("getSystemInfo") as JObject;
+			return result.ContainsKey("result");
+		}
 	}
 }
