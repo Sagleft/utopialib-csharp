@@ -10,18 +10,11 @@ namespace UtopiaLib
 	/// <summary>
 	/// Description of HttpClient.
 	/// </summary>
-	public class HttpClient
+	public static class HttpClient
 	{
 		public static string buildJsonQuery(string url, string method = "GET", string body = "") {
-			//string nonce = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString();
-			//string nonce = (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond).ToString();
-			
-			//byte[] key = Convert.FromBase64String(secret);
-			//byte[] message = Encoding.UTF8.GetBytes(path + nonce);
-			//HMACSHA512 hmac = new HMACSHA512(key);
-			//string signature = Convert.ToBase64String(hmac.ComputeHash(message));
-			
-			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+			//SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | 
+			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
 			WebRequest request = WebRequest.Create(url);
 			request.Method = method;
 			//request.Accept = "application/json";

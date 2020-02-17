@@ -7,10 +7,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>LibTest</RootNamespace>
     <AssemblyName>LibTest</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <ApplicationIcon>..\resources\icon.ico</ApplicationIcon>
     <NoWin32Manifest>False</NoWin32Manifest>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
