@@ -9,12 +9,12 @@ namespace UtopiaLib
 			return apiQuery("getSystemInfo")["result"] as JObject;
 		}
 		
-		public JArray getNetworkConnections() {
+		public JObject getNetworkConnections() {
 			return getNetworkConnections(null);
 		}
 		
-		public JArray getNetworkConnections(QueryFilter filter) {
-			return apiQuery("getNetworkConnections", new JObject(), filter)["result"] as JArray;
+		public JObject getNetworkConnections(QueryFilter filter) {
+			return apiQuery("getNetworkConnections", new JObject(), filter)["result"] as JObject;
 		}
 	}
 }
