@@ -61,6 +61,7 @@
     <Compile Include="API\Channels.cs" />
     <Compile Include="API\Contacts.cs" />
     <Compile Include="API\CryptoCards.cs" />
+    <Compile Include="API\Files.cs" />
     <Compile Include="API\Finance.cs" />
     <Compile Include="API\Invoice.cs" />
     <Compile Include="API\Message.cs" />

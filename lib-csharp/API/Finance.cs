@@ -8,7 +8,7 @@ namespace UtopiaLib
 		public JObject getFinanceSystemInformation() {
 			return apiQuery("getFinanceSystemInformation")["result"] as JObject;
 		}
-		
+
 		public JArray getFinanceHistory(string query_filters = "ALL_TRANSFERS", QueryFilter filter = null, string referenceNumber = "", string toDate = "", string fromDate = "", string batchId = "", string fromAmount = "", string toAmount = "") {
 			JObject params_obj = new JObject();
 			params_obj.Add( new JProperty("filters", query_filters) );
@@ -18,6 +18,7 @@ namespace UtopiaLib
 			params_obj.Add( new JProperty("batchId", batchId) );
 			params_obj.Add( new JProperty("fromAmount", fromAmount) );
 			params_obj.Add( new JProperty("toAmount", toAmount) );
+			
 			return apiQuery("getFinanceHistory", params_obj, filter)["result"] as JArray;
 		}
 	}
