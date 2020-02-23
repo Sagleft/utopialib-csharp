@@ -26,22 +26,35 @@ namespace UtopiaLib
 			return apiQuery("addCard", params_obj)["result"].ToString();
 		}
 		
-		public string addCard() {
-			return addCard("my card", "#FFFFFF", "0000");
-		}
-		
-		public string addCard(string name = "my card") {
+		public string addCard(string name) {
 			return addCard(name, "#FFFFFF", "0000");
 		}
 		
-		public string addCard(string name = "my card", string color = "#FFFFFF") {
+		public string addCard(string name, string color) {
 			return addCard(name, color, "0000");
+		}
+		
+		public string addCard() {
+			return addCard("my card", "#FFFFFF", "0000");
 		}
 		
 		public bool deleteCard(string cardId = "") {
 			JObject params_obj = new JObject();
 			params_obj.Add( new JProperty("cardId", cardId) );
 			return (bool) apiQuery("deleteCard", params_obj)["result"];
+		}
+		
+		public JObject getCardInfo(string cardID) {
+			
+			JArray cards_arr = apiQuery("getCards")["result"] as JArray;
+			for(int i = 0; i < cards_arr.Count; i++) {
+				JObject card_info = cards_arr[i] as JObject;
+				if(card_info["cardid"] == cardID) {
+					return card_info;
+				}
+			}
+			//not found
+			return new JObject();
 		}
 	}
 }
