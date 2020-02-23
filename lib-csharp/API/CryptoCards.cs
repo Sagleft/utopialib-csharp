@@ -49,7 +49,7 @@ namespace UtopiaLib
 			JArray cards_arr = apiQuery("getCards")["result"] as JArray;
 			for(int i = 0; i < cards_arr.Count; i++) {
 				JObject card_info = cards_arr[i] as JObject;
-				if(card_info["cardid"] == cardID) {
+				if(card_info["cardid"].ToString() == cardID) {
 					return card_info;
 				}
 			}
