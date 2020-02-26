@@ -15,14 +15,26 @@ namespace UtopiaLib
 			return apiQuery("getOwnContact")["result"] as JObject;
 		}
 		
+		public string getMyPubkey() {
+			return getOwnContact()["pk"].ToString();
+		}
+		
+		public string getMyNick() {
+			return getOwnContact()["nick"].ToString();
+		}
+		
+		public string getMyAvatarHash() {
+			return getOwnContact()["avatarMd5"].ToString();
+		}
+		
 		public JArray getContacts() {
 			return getContacts("");
 		}
 		
-		public JArray getContacts(string search_filter = "") {
+		public JArray getContacts(string search_filter = "", QueryFilter filter = null) {
 			JObject params_obj = new JObject();
 			params_obj.Add( new JProperty("filter", search_filter) );
-			return apiQuery("getContacts", params_obj)["result"] as JArray;
+			return apiQuery("getContacts", params_obj, filter)["result"] as JArray;
 		}
 		
 		public string getContactAvatar(string pk = "", string coder = "BASE64", string format = "PNG") {

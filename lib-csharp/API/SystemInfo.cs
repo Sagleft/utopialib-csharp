@@ -9,6 +9,10 @@ namespace UtopiaLib
 			return apiQuery("getSystemInfo")["result"] as JObject;
 		}
 		
+		public bool isNetworkEnabled() {
+			return (bool) getSystemInfo()["networkEnabled"];
+		}
+		
 		public JObject getNetworkConnections() {
 			return getNetworkConnections(null);
 		}

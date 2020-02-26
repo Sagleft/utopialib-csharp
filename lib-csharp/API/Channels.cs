@@ -203,5 +203,9 @@ namespace UtopiaLib
 			JObject channels_sysinfo = getChannelSystemInfo();
 			return channels_sysinfo["last_downloaded_channel"].ToString();
 		}
+		
+		public JArray findChannelsByPubkey(string pubkey) {
+			return getWhoIsInfo(pubkey)["channels"] as JArray;
+		}
 	}
 }

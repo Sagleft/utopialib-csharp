@@ -108,5 +108,25 @@ namespace UtopiaLib
 			params_obj.Add( new JProperty("toDate", toDate) );
 			return apiQuery("summaryUnsRegisteredNames", params_obj, filter)["result"] as JObject;
 		}
+		
+		public float getUnsDeleteNameFee() {
+			return (float) getFinanceSystemInformation()["unsDeleteNameFee"];
+		}
+		
+		public float getUnsModifyNameFee() {
+			return (float) getFinanceSystemInformation()["unsModifyNameFee"];
+		}
+		
+		public float getUnsTransferFee() {
+			return (float) getFinanceSystemInformation()["unsTransferFee"];
+		}
+		
+		public bool isUnsProxyEnabled() {
+			return (bool) getFinanceSystemInformation()["unsProxyEnabled"];
+		}
+		
+		public bool isVouchersUseEnabled() {
+			return (bool) getFinanceSystemInformation()["vouchersUseEnabled"];
+		}
 	}
 }

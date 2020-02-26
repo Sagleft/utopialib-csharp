@@ -64,5 +64,17 @@ namespace UtopiaLib
 		public JObject getMiningInfo() {
 			return apiQuery("getMiningInfo")["result"] as JObject;
 		}
+		
+		public bool isPOSenabled() {
+			return (bool) getFinanceSystemInformation()["PoS"];
+		}
+		
+		public float getMinedAllTime() {
+			return (float) getMiningInfo()["minedAllTime"];
+		}
+		
+		public float getMinedInSession() {
+			return (float) getMiningInfo()["minedSession"];
+		}
 	}
 }

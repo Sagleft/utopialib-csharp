@@ -26,7 +26,5 @@ namespace UtopiaLib
 			params_obj.Add( new JProperty("voucherid", voucherid) );
 			return apiQuery("deleteVoucher", params_obj)["result"].ToString();
 		}
-		
-		
 	}
 }
