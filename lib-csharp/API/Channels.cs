@@ -80,6 +80,22 @@ namespace UtopiaLib
 			return apiQuery("getChannelInfo", params_obj)["result"] as JObject;
 		}
 		
+		public string getChannelDecription(string channelid) {
+			return getChannelInfo(channelid)["description"].ToString();
+		}
+		
+		public string getChannelOwnerPubkey(string channelid) {
+			return getChannelInfo(channelid)["owner"].ToString();
+		}
+		
+		public string getChannelTitle(string channelid) {
+			return getChannelInfo(channelid)["title"].ToString();
+		}
+		
+		public string getChannelType(string channelid) {
+			return getChannelInfo(channelid)["type"].ToString();
+		}
+		
 		public JArray getChannelModerators(string channelid = "") {
 			return getChannelModerators(channelid, null);
 		}
@@ -167,6 +183,25 @@ namespace UtopiaLib
 			JObject params_obj = new JObject();
 			params_obj.Add( new JProperty("channelid", channelid) );
 			return apiQuery("getChannelSystemInfo", params_obj)["result"] as JObject;
+		}
+		
+		public int getNetworkChannelsCount() {
+			JObject channels_sysinfo = getChannelSystemInfo();
+			int count = 0;
+			Int32.TryParse(channels_sysinfo["network_channels"].ToString(), out count);
+			return count;
+		}
+		
+		public int getTotalChannelsCount() {
+			JObject channels_sysinfo = getChannelSystemInfo();
+			int count = 0;
+			Int32.TryParse(channels_sysinfo["total_channels"].ToString(), out count);
+			return count;
+		}
+		
+		public string getLastDownloadedChannelTitle() {
+			JObject channels_sysinfo = getChannelSystemInfo();
+			return channels_sysinfo["last_downloaded_channel"].ToString();
 		}
 	}
 }
