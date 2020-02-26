@@ -74,10 +74,10 @@ namespace UtopiaLib
 			return apiQuery("getChannelMessages", params_obj)["result"] as JArray;
 		}
 		
-		public JArray getChannelInfo(string channelid = "") {
+		public JObject getChannelInfo(string channelid = "") {
 			JObject params_obj = new JObject();
 			params_obj.Add( new JProperty("channelid", channelid) );
-			return apiQuery("getChannelInfo", params_obj)["result"] as JArray;
+			return apiQuery("getChannelInfo", params_obj)["result"] as JObject;
 		}
 		
 		public JArray getChannelModerators(string channelid = "") {
