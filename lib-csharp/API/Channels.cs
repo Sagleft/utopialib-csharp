@@ -5,9 +5,9 @@ using Newtonsoft.Json.Linq;
 namespace UtopiaLib
 {
 	public partial class Client {
-		public string getChannelAvatar(int channelid = 0, string coder = "BASE64", string format = "PNG") {
+		public string getChannelAvatar(string channelid, string coder = "BASE64", string format = "PNG") {
 			JObject params_obj = new JObject();
-			params_obj.Add( new JProperty("channelid", channelid.ToString()) );
+			params_obj.Add( new JProperty("channelid", channelid) );
 			params_obj.Add( new JProperty("coder", coder) );
 			params_obj.Add( new JProperty("format", format) );
 			return (string) apiQuery("getChannelAvatar", params_obj)["result"];
