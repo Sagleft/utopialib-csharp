@@ -11,6 +11,10 @@ namespace UtopiaLib
 		public string sortBy = "";
 		public string offset = "";
 		public string limit  = "";
+		
+		public JObject toJObject() {
+			return JObject.FromObject(this);
+		}
 	}
 	
 	public partial class Client
@@ -52,7 +56,7 @@ namespace UtopiaLib
 			json_obj.Add( new JProperty("params", params_obj) );
 			json_obj.Add( new JProperty("token", this.token) );
 			if(filter != null) {
-				json_obj.Add( new JProperty("filter", filter) );
+				json_obj.Add( new JProperty("filter", filter.toJObject()) );
 			}
 			
 			string jsonQuery = json_obj.ToString();
