@@ -207,5 +207,26 @@ namespace UtopiaLib
 		public JArray findChannelsByPubkey(string pubkey) {
 			return getWhoIsInfo(pubkey)["channels"] as JArray;
 		}
+		
+		public bool setChannelAsBookmarked(string channelid = "", bool bookmarked = true) {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("channelid", channelid) );
+			params_obj.Add( new JProperty("bookmarked", bookmarked) );
+			
+			return (bool) apiQuery("setChannelAsBookmarked", params_obj)["result"];
+		}
+		
+		public JArray getChannelBannedContacts(string channelid = "") {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("channelid", channelid) );
+			return apiQuery("getChannelBannedContacts", params_obj)["result"] as JArray;
+		}
+		
+		public JArray applyChannelBannedContacts(string channelid = "", JArray newList) {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("channelid", channelid) );
+			params_obj.Add( new JProperty("newList", newList.ToString()) );
+			return apiQuery("applyChannelBannedContacts", params_obj)["result"] as JArray;
+		}
 	}
 }
