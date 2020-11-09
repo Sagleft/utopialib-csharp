@@ -57,5 +57,22 @@ namespace UtopiaLib
 			JObject result = apiQuery("getSystemInfo") as JObject;
 			return result.ContainsKey("result");
 		}
+		
+		public JArray getReleaseNotes() {
+			return apiQuery("getReleaseNotes")["result"] as JArray;
+		}
+
+		public JArray getSettingInfo(string settingId = "") {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("settingId", settingId) );
+			return apiQuery("getSettingInfo", params_obj)["result"] as JArray;
+		}
+		
+		public bool setSettingInfo(string settingId = "", string newValue = "") {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("settingId", settingId) );
+			params_obj.Add( new JProperty("newValue", newValue) );
+			return (bool) apiQuery("setSettingInfo", params_obj)["result"];
+		}
 	}
 }
