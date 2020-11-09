@@ -55,5 +55,29 @@ namespace UtopiaLib
 			params_obj.Add( new JProperty("pk", pk) );
 			return apiQuery("getContactMessages", params_obj, filter)["result"] as JArray;
 		}
+		
+		public int pinInstantMessage(string to = "", int messageId = 0, bool pin = true) {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("to", to) );
+			params_obj.Add( new JProperty("messageId", messageId) );
+			params_obj.Add( new JProperty("pin", pin) );
+			
+			string result = apiQuery("pinInstantMessage", params_obj)["result"] as JArray;
+			return Helpers.parseInt(result);
+		}
+		
+		public JArray getPinnedMessages(string to = "") {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("to", to) );
+			return apiQuery("getPinnedMessages", params_obj)["result"] as JArray;
+		}
+		
+		public int bookmarkInstantMessage(int messageId = 0, string comments = "") {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("messageId", messageId) );
+			params_obj.Add( new JProperty("comments", comments) );
+			
+			return apiQuery("bookmarkInstantMessage", params_obj)["result"] as JArray;
+		}
 	}
 }
