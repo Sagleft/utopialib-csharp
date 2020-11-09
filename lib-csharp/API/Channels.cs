@@ -222,7 +222,7 @@ namespace UtopiaLib
 			return apiQuery("getChannelBannedContacts", params_obj)["result"] as JArray;
 		}
 		
-		public JArray applyChannelBannedContacts(string channelid = "", JArray newList) {
+		public JArray applyChannelBannedContacts(string channelid = "", JArray newList = null) {
 			JObject params_obj = new JObject();
 			params_obj.Add( new JProperty("channelid", channelid) );
 			params_obj.Add( new JProperty("newList", newList.ToString()) );
