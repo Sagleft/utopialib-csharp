@@ -62,7 +62,7 @@ namespace UtopiaLib
 			params_obj.Add( new JProperty("messageId", messageId) );
 			params_obj.Add( new JProperty("pin", pin) );
 			
-			string result = apiQuery("pinInstantMessage", params_obj)["result"] as JArray;
+			string result = apiQuery("pinInstantMessage", params_obj)["result"].ToString();
 			return Helpers.parseInt(result);
 		}
 		
@@ -77,7 +77,8 @@ namespace UtopiaLib
 			params_obj.Add( new JProperty("messageId", messageId) );
 			params_obj.Add( new JProperty("comments", comments) );
 			
-			return apiQuery("bookmarkInstantMessage", params_obj)["result"] as JArray;
+			string result = apiQuery("bookmarkInstantMessage", params_obj)["result"].ToString();
+			return Helpers.parseInt(result);
 		}
 	}
 }
