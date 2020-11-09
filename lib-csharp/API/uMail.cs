@@ -75,5 +75,39 @@ namespace UtopiaLib
 			params_obj.Add( new JProperty("subject", subject) );
 			return (bool) apiQuery("sendForwardEmailMessage", params_obj)["result"];
 		}
+		
+		public bool acceptAttachment(int emailId = 0, int fileId = 100) {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("emailId", emailId) );
+			params_obj.Add( new JProperty("fileId", fileId) );
+			
+			return (bool) apiQuery("acceptAttachment", params_obj)["result"];
+		}
+		
+		public bool abortAttachment(int emailId = 0, int fileId = 100) {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("emailId", emailId) );
+			params_obj.Add( new JProperty("fileId", fileId) );
+			
+			return (bool) apiQuery("abortAttachment", params_obj)["result"];
+		}
+		
+		public bool acceptFileMessage(int messageId = 0) {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("messageId", messageId) );
+			
+			return (bool) apiQuery("acceptFileMessage", params_obj)["result"];
+		}
+		
+		public bool abortFileMessage(int messageId = 0) {
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("messageId", messageId) );
+			
+			return (bool) apiQuery("abortFileMessage", params_obj)["result"];
+		}
+		
+		public bool emptyEmailsTrash() {
+			return (bool) apiQuery("emptyEmailsTrash")["result"];
+		}
 	}
 }
