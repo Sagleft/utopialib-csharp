@@ -49,11 +49,11 @@ namespace UtopiaLib
 			return (bool) apiQuery("sendFileByMessage", params_obj)["result"];
 		}
 		
-		public int uploadFile(string base64 = "", string filename = "file.ext") {
+		public bool uploadFile(string base64 = "", string filename = "file.ext") {
 			JObject params_obj = new JObject();
 			params_obj.Add( new JProperty("fileDataBase64", base64) );
 			params_obj.Add( new JProperty("fileName", filename) );
-			return (int) apiQuery("uploadFile", params_obj)["result"];
+			return (bool) apiQuery("uploadFile", params_obj)["result"];
 		}
 	}
 }
