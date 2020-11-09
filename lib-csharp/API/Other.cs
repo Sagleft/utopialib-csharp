@@ -20,13 +20,13 @@ namespace UtopiaLib
 		public bool setLowTrafficMode(bool enabled = true) {
 			JObject params_obj = new JObject();
 			params_obj.Add( new JProperty("enabled", enabled) );
-			return (bool) apiQuery("setLowTrafficMode")["result"];
+			return (bool) apiQuery("setLowTrafficMode", params_obj)["result"];
 		}
 		
 		public JArray getWhoIsInfo(string owner = "") {
 			JObject params_obj = new JObject();
 			params_obj.Add( new JProperty("owner", owner) );
-			return apiQuery("getWhoIsInfo")["result"] as JArray;
+			return apiQuery("getWhoIsInfo", params_obj)["result"] as JArray;
 		}
 		
 		public bool requestTreasuryInterestRates() {
