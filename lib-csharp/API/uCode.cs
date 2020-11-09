@@ -26,7 +26,10 @@ namespace UtopiaLib
 		}
 		
 		public int setWebSocketState(bool enabled = true, int port = 22827) {
-			string result = apiQuery("setWebSocketState")["result"].ToString();
+			JObject params_obj = new JObject();
+			params_obj.Add( new JProperty("enabled", enabled) );
+			params_obj.Add( new JProperty("port", port) );
+			string result = apiQuery("setWebSocketState", params_obj)["result"].ToString();
 			return Helpers.parseInt(result);
 		}
 	}
